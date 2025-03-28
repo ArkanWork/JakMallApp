@@ -57,5 +57,5 @@ const fetchCategories = async () => {
 Proyek ini menggunakan lisensi **MIT**. Silakan gunakan dan kembangkan lebih lanjut.
 
 ---
-💡 **Dikembangkan oleh Naufal Arkan Lutfiansyah**
+💡 **by Arkan Works @naufal.arkn7@gmail.com**
 
