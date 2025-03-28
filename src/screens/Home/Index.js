@@ -20,6 +20,7 @@ export default function HomeScreen() {
   const [jokes, setJokes] = useState({});
   const [rotated, setRotated] = useState({});
   const [showJokes, setShowJokes] = useState({});
+  const [initialOrder, setInitialOrder] = useState([]);
 
   const [isLoading, setIsLoading] = useState(true);
   const [isOpen, setIsOpen] = useState({});
@@ -42,6 +43,7 @@ export default function HomeScreen() {
       });
       await Promise.all(fetchAllJokes);
       setJokes(jokesData);
+      setInitialOrder(categories);
       setIsLoading(false);
     } catch (error) {
       console.log('Error in fetchAllJokes:', error);
@@ -86,12 +88,6 @@ export default function HomeScreen() {
     }).start();
   };
 
-  const rotation = category =>
-    (rotated[category] || new Animated.Value(0)).interpolate({
-      inputRange: [0, 1],
-      outputRange: ['0deg', '-180deg'],
-    });
-
   const handleAddJokes = category => {
     setShowJokes(prev => ({
       ...prev,
@@ -128,6 +124,11 @@ export default function HomeScreen() {
     ]);
   };
 
+  const rotation = category =>
+    (rotated[category] || new Animated.Value(0)).interpolate({
+      inputRange: [0, 1],
+      outputRange: ['0deg', '-180deg'],
+    });
   return (
     <>
       <View style={styles.titleScreen}>
@@ -145,7 +146,7 @@ export default function HomeScreen() {
             <View key={category} style={styles.containerDropdown}>
               <View style={styles.titleDropdown}>
                 <Typography variant="bodyL" color="black">
-                  {index + 1}. {category}
+                  {initialOrder.indexOf(category) + 1}. {category}
                 </Typography>
                 <View style={styles.pinAndOpen}>
                   <Pressable
