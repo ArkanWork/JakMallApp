@@ -133,7 +133,7 @@ export default function HomeScreen() {
     <>
       <View style={styles.titleScreen}>
         <Typography variant="title" color="primary">
-          Hi, There! JakMall here.
+          Hi, JakMall Apps here!
         </Typography>
       </View>
       <ScrollView
