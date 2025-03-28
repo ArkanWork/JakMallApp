@@ -4,94 +4,70 @@ import colors from '../../assets/colors/Colors';
 const {width, height} = Dimensions.get('window');
 
 export default styles = StyleSheet.create({
-  background: {
+  screen: {
     flex: 1,
     backgroundColor: colors.background,
   },
-  imageLogo: {
-    height: 40,
-    width: 64,
-  },
-  iconMedium: {
-    height: 48,
-    width: 48,
-  },
-  containerLogoMessage: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    marginHorizontal: 20,
-    marginVertical: 32,
-  },
-  containerHomeBalance: {
-    alignItems: 'center',
-  },
-  containerBalance: {
-    marginHorizontal: 20,
-    backgroundColor: colors.white,
-    flexDirection: 'row',
-    padding: 16,
-    alignItems: 'center',
-    justifyContent: 'space-between',
-    borderTopLeftRadius: 12,
-    borderTopRightRadius: 12,
-    width: width * 0.9,
-  },
-  infoSaldo: {
-    color: colors.info,
-    marginBottom: 4,
-  },
-  textBlack: {
-    color: colors.black,
-  },
-  containerShortcut: {
-    flexDirection: 'row',
-    backgroundColor: colors.primary,
-    width: width * 0.9,
-    justifyContent: 'space-around',
+  titleScreen: {
     padding: 20,
-    borderBottomLeftRadius: 12,
-    borderBottomRightRadius: 12,
-  },
-  iconShorcut: {
-    height: 48,
-    width: 48,
-  },
-  alignCenter: {
-    alignItems: 'center',
-  },
-  textShortcut: {
-    color: colors.white,
-    marginTop: 8,
-  },
-  containerMenu: {
-    marginVertical: 32,
-  },
-  rowMenu: {
     backgroundColor: colors.white,
+    elevation: 2,
+    shadowColor: colors.success,
+  },
+  containerDropdown: {
+    padding: 12,
+    marginHorizontal: 12,
+    marginVertical: 12,
+    backgroundColor: colors.white,
+    borderRadius: 8,
+    borderWidth: 1,
+    borderColor: colors.primary,
+  },
+  titleDropdown: {
     flexDirection: 'row',
-    alignItems: 'center',
     justifyContent: 'space-between',
-    width: width,
-    flexWrap: 'wrap',
-    paddingHorizontal: 24,
-    paddingVertical: 12,
+    alignItems: 'center',
   },
-  textMenu: {
-    color: colors.black,
-    marginTop: 8,
+  iconDropdown: {
+    width: 24,
+    height: 24,
   },
-  titleSection: {
-    color: colors.black,
-    marginLeft: 20,
-    marginBottom: 8,
+  containerIcon: {
+    backgroundColor: colors.divider,
+    borderRadius: 20,
+    borderWidth: 1,
+    borderColor: colors.primaryLight,
   },
-  scrollRow: {
-    paddingLeft: 16,
-    paddingRight: 16,
+  containerJokes: {
+    backgroundColor: colors.white,
+    padding: 8,
+    borderWidth: 1,
+    borderColor: colors.primaryLight,
+    marginTop: 12,
+    borderRadius: 4,
   },
-  bannerPromo: {
-    width: 350,
-    height: 150,
-    marginHorizontal: 4,
+  buttonAddJokes: {
+    marginTop: 12,
+    backgroundColor: colors.primary,
+    padding: 12,
+    borderRadius: 20,
+    alignItems: 'center',
+  },
+  buttonToTopDefault: {
+    backgroundColor: colors.secondary,
+    padding: 8,
+    borderRadius: 4,
+    marginRight: 20,
+  },
+  buttonToTopDisable: {
+    backgroundColor: colors.info,
+    padding: 8,
+    borderRadius: 4,
+    marginRight: 20,
+  },
+  pinAndOpen: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
   },
 });

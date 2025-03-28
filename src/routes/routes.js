@@ -16,7 +16,7 @@ export default function Route() {
       <Stack.Navigator>
         <Stack.Screen
           name="MainScreen"
-          component={BottomTabs}
+          component={HomeScreen}
           options={{headerShown: false}}
         />
       </Stack.Navigator>
@@ -45,7 +45,7 @@ function BottomTabs() {
           tabBarIcon: ({focused}) => (
             <View style={{alignItems: 'center'}}>
               <FastImage
-                source={require('../assets/icons/Arrow-Back.png')}
+                source={require('../assets/icons/arrow-back.png')}
                 resizeMode="contain"
                 style={{
                   width: 24,

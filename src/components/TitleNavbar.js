@@ -10,7 +10,7 @@ export default function TitleNavbar({title, buttonBack}) {
       {buttonBack && (
         <TouchableOpacity>
           <FastImage
-            source={require('../assets/icons/Arrow-Back.png')}
+            source={require('../assets/icons/arrow-back.png')}
             style={styles.buttonBack}
             resizeMode="contain"
           />
