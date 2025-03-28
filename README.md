@@ -4,8 +4,6 @@ JakmallApp adalah aplikasi berbasis **React Native** yang menyajikan berbagai ka
 
 ## 📌 Fitur Utama
 - **Menampilkan kategori lelucon** secara dinamis dari API.
-- **Melihat detail lelucon** dengan tampilan yang menarik.
-- **Menambahkan lebih banyak lelucon** ke dalam kategori tertentu.
 - **Menyematkan kategori ke atas daftar** untuk akses cepat.
 - **Mendukung refresh data** untuk mendapatkan lelucon terbaru.
 
