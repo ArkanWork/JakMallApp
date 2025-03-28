@@ -2,10 +2,10 @@ import {View, Text} from 'react-native';
 import React from 'react';
 
 const colors = {
-  primaryLighter: '#feeae7',
-  primaryLight: '#faac9e',
-  primary: '#F2300C',
-  primaryDark: '#611305',
+  primaryLighter: '#e9f2ee',
+  primaryLight: '#a5cbba',
+  primary: '#1F7D53',
+  primaryDark: '#0c3221',
   background: '#eaeaea',
   secondaryLighter: '#fff7e6',
   secondaryLight: '#ffe099',

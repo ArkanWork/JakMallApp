@@ -2,15 +2,11 @@ import {View, Text, TouchableOpacity, Animated, Alert} from 'react-native';
 import React, {useEffect, useState} from 'react';
 import Typography from '../../components/Typography';
 import axios from 'axios';
-import {
-  FlatList,
-  Pressable,
-  RefreshControl,
-  ScrollView,
-} from 'react-native-gesture-handler';
+import {RefreshControl, ScrollView} from 'react-native-gesture-handler';
 import FastImage from 'react-native-fast-image';
 import styles from './Style';
 import colors from '../../assets/colors/Colors';
+import TitleNavbar from '../../components/TitleNavbar';
 
 export default function HomeScreen() {
   const [dataCategories, setDataCategories] = useState({
@@ -91,7 +87,7 @@ export default function HomeScreen() {
   const handleAddJokes = category => {
     setShowJokes(prev => ({
       ...prev,
-      [category]: Math.min((prev[category] || 2) + 1, 6),
+      [category]: Math.min((prev[category] || 2) + 2, 6),
     }));
   };
 
@@ -116,9 +112,9 @@ export default function HomeScreen() {
   };
 
   const handleViewJoke = (joke, category) => {
-    Alert.alert(`Category: ${category}`, `${joke.joke}`, [
+    Alert.alert(`Category Joke: ${category}`, `${joke.joke}`, [
       {
-        text: 'Close',
+        text: 'Ok',
         style: 'cancel',
       },
     ]);
@@ -131,11 +127,7 @@ export default function HomeScreen() {
     });
   return (
     <>
-      <View style={styles.titleScreen}>
-        <Typography variant="title" color="primary">
-          Hi, JakMall Apps here!
-        </Typography>
-      </View>
+      <TitleNavbar title={'👋 Hi, Nice to see you!'} color="white" />
       <ScrollView
         style={styles.screen}
         refreshControl={
@@ -145,11 +137,11 @@ export default function HomeScreen() {
           {dataCategories.categories.map((category, index) => (
             <View key={category} style={styles.containerDropdown}>
               <View style={styles.titleDropdown}>
-                <Typography variant="bodyL" color="black">
+                <Typography variant="subtitle" color="primaryDark">
                   {initialOrder.indexOf(category) + 1}. {category}
                 </Typography>
                 <View style={styles.pinAndOpen}>
-                  <Pressable
+                  <TouchableOpacity
                     style={
                       index === 0
                         ? styles.buttonToTopDisable
@@ -159,31 +151,36 @@ export default function HomeScreen() {
                     onPress={() => handleToTop(category)}>
                     <Typography
                       variant="bodyM"
-                      color={index === 0 ? 'white' : 'black'}>
-                      {index === 0 ? 'Pinned' : 'Pin to top'}
+                      color={index === 0 ? 'primaryDark' : 'white'}>
+                      {index === 0 ? '📌 Pinned' : 'Pin to top'}
                     </Typography>
-                  </Pressable>
-                  <Pressable onPress={() => handleClick(category)}>
+                  </TouchableOpacity>
+                  <TouchableOpacity onPress={() => handleClick(category)}>
                     <Animated.View
                       style={{transform: [{rotate: rotation(category)}]}}>
-                      <View style={styles.containerIcon}>
+                      <View style={styles.containerIconDefault}>
                         <FastImage
                           source={require('../../assets/icons/chevron-down.png')}
                           style={styles.iconDropdown}
-                          tintColor={colors.primaryDark}
+                          tintColor={colors.primary}
                         />
                       </View>
                     </Animated.View>
-                  </Pressable>
+                  </TouchableOpacity>
                 </View>
               </View>
               {isOpen[category] && (
                 <View>
                   {isLoading ? (
-                    <Typography>Loading...</Typography>
-                  ) : jokes[category].error ? (
-                    <Typography>
-                      {jokes[category].message || 'No jokes found'}
+                    <Typography variant="bodyM" color="info">
+                      Loading...
+                    </Typography>
+                  ) : jokes[category].length < 1 ? (
+                    <Typography
+                      variant="info"
+                      color="info"
+                      style={styles.noJokesInfo}>
+                      {jokes[category].message || 'Sorry, No Jokes here.'}
                     </Typography>
                   ) : (
                     <>
@@ -201,13 +198,13 @@ export default function HomeScreen() {
                         ))}
                       {jokes[category]?.length > 0 &&
                         (showJokes[category] || 2) < 6 && (
-                          <Pressable
+                          <TouchableOpacity
                             style={styles.buttonAddJokes}
                             onPress={() => handleAddJokes(category)}>
                             <Typography variant="body" color="white">
                               + Add More Jokes
                             </Typography>
-                          </Pressable>
+                          </TouchableOpacity>
                         )}
                     </>
                   )}

@@ -1,25 +1,36 @@
-import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
+import {
+  ImageBackground,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
+} from 'react-native';
 import React from 'react';
 import Typography from './Typography';
 import FastImage from 'react-native-fast-image';
 import colors from '../assets/colors/Colors';
 
-export default function TitleNavbar({title, buttonBack}) {
+export default function TitleNavbar({buttonBack, title, color}) {
   return (
-    <View style={styles.containerTitle}>
-      {buttonBack && (
-        <TouchableOpacity>
-          <FastImage
-            source={require('../assets/icons/arrow-back.png')}
-            style={styles.buttonBack}
-            resizeMode="contain"
-          />
-        </TouchableOpacity>
-      )}
-      <Typography variant="title" color="black">
-        {title}
-      </Typography>
-    </View>
+    <ImageBackground
+      source={require('../assets/images/backgroundNavtitle.png')}
+      style={styles.backgroundImage}
+      resizeMode="cover">
+      <View style={styles.containerTitle}>
+        {buttonBack && (
+          <TouchableOpacity>
+            <FastImage
+              source={require('../assets/icons/arrow-back.png')}
+              style={styles.buttonBack}
+              resizeMode="contain"
+            />
+          </TouchableOpacity>
+        )}
+        <Typography variant="title" color={color}>
+          {title}
+        </Typography>
+      </View>
+    </ImageBackground>
   );
 }
 
@@ -36,5 +47,9 @@ const styles = StyleSheet.create({
     borderRadius: 20,
     marginRight: 20,
     backgroundColor: colors.background,
+  },
+  backgroundImage: {
+    height: 'auto',
+    width: '100%',
   },
 });

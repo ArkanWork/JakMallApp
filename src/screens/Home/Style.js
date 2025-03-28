@@ -6,22 +6,23 @@ const {width, height} = Dimensions.get('window');
 export default styles = StyleSheet.create({
   screen: {
     flex: 1,
-    backgroundColor: colors.background,
+    backgroundColor: colors.primaryLighter,
+    paddingTop: 20,
   },
   titleScreen: {
     padding: 20,
     backgroundColor: colors.white,
-    elevation: 2,
-    shadowColor: colors.success,
+    elevation: 20,
+    shadowColor: colors.primaryDark,
   },
   containerDropdown: {
-    padding: 12,
-    marginHorizontal: 12,
-    marginVertical: 12,
+    padding: 20,
+    marginHorizontal: 20,
+    marginVertical: 6,
     backgroundColor: colors.white,
-    borderRadius: 8,
+    borderRadius: 12,
+    borderColor: colors.primaryLighter,
     borderWidth: 1,
-    borderColor: colors.primary,
   },
   titleDropdown: {
     flexDirection: 'row',
@@ -33,10 +34,8 @@ export default styles = StyleSheet.create({
     height: 24,
   },
   containerIcon: {
-    backgroundColor: colors.divider,
+    backgroundColor: colors.white,
     borderRadius: 20,
-    borderWidth: 1,
-    borderColor: colors.primaryLight,
   },
   containerJokes: {
     backgroundColor: colors.white,
@@ -54,20 +53,25 @@ export default styles = StyleSheet.create({
     alignItems: 'center',
   },
   buttonToTopDefault: {
-    backgroundColor: colors.secondary,
+    backgroundColor: colors.primary,
     padding: 8,
     borderRadius: 4,
     marginRight: 20,
   },
   buttonToTopDisable: {
-    backgroundColor: colors.info,
     padding: 8,
     borderRadius: 4,
     marginRight: 20,
+    borderWidth: 1,
+    borderColor: colors.primaryLight,
   },
   pinAndOpen: {
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
+  },
+  noJokesInfo: {
+    marginTop: 20,
+    textAlign: 'center',
   },
 });
