@@ -1,4 +1,11 @@
-import {View, Text, TouchableOpacity, Animated, Alert} from 'react-native';
+import {
+  View,
+  Text,
+  TouchableOpacity,
+  Animated,
+  Alert,
+  StatusBar,
+} from 'react-native';
 import React, {useEffect, useState} from 'react';
 import Typography from '../../components/Typography';
 import axios from 'axios';
@@ -8,7 +15,7 @@ import styles from './Style';
 import colors from '../../assets/colors/Colors';
 import TitleNavbar from '../../components/TitleNavbar';
 
-export default function HomeScreen() {
+export default function HomeScreen({navigation}) {
   const [dataCategories, setDataCategories] = useState({
     categories: [],
     categoryAliases: [],
@@ -127,13 +134,15 @@ export default function HomeScreen() {
     });
   return (
     <>
+      <StatusBar backgroundColor={colors.primary} translucent={false} />
       <TitleNavbar title={'👋 Hi, Nice to see you!'} color="white" />
       <ScrollView
         style={styles.screen}
+        showsVerticalScrollIndicator={false}
         refreshControl={
           <RefreshControl refreshing={isRefresh} onRefresh={handleRefresh} />
         }>
-        <View>
+        <View style={styles.containerAlldropdown}>
           {dataCategories.categories.map((category, index) => (
             <View key={category} style={styles.containerDropdown}>
               <View style={styles.titleDropdown}>

@@ -1,19 +1,28 @@
 import * as React from 'react';
 import {NavigationContainer, useNavigation} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
-import HomeScreen from '../screens/Home/Index';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {StyleSheet, View} from 'react-native';
 import FastImage from 'react-native-fast-image';
 import Typography from '../components/Typography';
 import colors from '../assets/colors/Colors';
 
+import HomeScreen from '../screens/Home/Index';
+import SplashScreen from '../screens/Splash/Index';
+
 const Stack = createStackNavigator();
 
 export default function Route() {
   return (
     <NavigationContainer>
-      <Stack.Navigator>
+      <Stack.Navigator
+        initialRouteName="Splash"
+        screenOptions={{headerShown: false}}>
+        <Stack.Screen
+          name="Splash"
+          component={SplashScreen}
+          options={{headerShown: false}}
+        />
         <Stack.Screen
           name="MainScreen"
           component={HomeScreen}

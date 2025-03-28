@@ -7,7 +7,9 @@ export default styles = StyleSheet.create({
   screen: {
     flex: 1,
     backgroundColor: colors.primaryLighter,
-    paddingTop: 20,
+  },
+  containerAlldropdown: {
+    paddingVertical: 20,
   },
   titleScreen: {
     padding: 20,
